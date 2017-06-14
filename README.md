@@ -124,5 +124,3 @@ The number of threads to use during maximization and minimization (default: 8).
 *filename*
 
 A tab-separated file with features. The first column is expected to be the target feature, the other columns are treated as explanatory features. The target feature must be binary/discrete. Default: `stdin`.
-
-![Teaser Image: Our poster at NIPS](poster.png)
