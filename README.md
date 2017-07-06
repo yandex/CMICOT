@@ -14,10 +14,16 @@ To find more usage information you can run both binaries with `--help` option.
 
 ## Quick start
 
+Default binarization:
+```bash
+> ./cmicot --pool pool > feature_ranking
+```
+
+Custom binarization:
 ```bash
 > cat pool | ./cmicot_eval --bin-feature-map > map_bin
 > cat pool | ./cmicot_eval --output-pool > pool_bin
-> ./cmicot --map map_bin --pool pool_bin > feature_ranking
+> ./cmicot --map map_bin --binary-pool pool_bin > feature_ranking
 ```
 * `pool` is a `tsv` file with the target variable in the first column and explanatory variables in the rest columns ([example](https://yadi.sk/d/vbTVJ2NT3ExTyu)).
 
@@ -27,7 +33,6 @@ To find more usage information you can run both binaries with `--help` option.
 
 * `feature_ranking` is a ranking of the original feature indices (no importance score, just the selection order), the first feature is the strongest.
 
-**Note!** The target feature must be binary or discrete (you can use the appropriate mode of `./cmicot_eval` to transform float target features to binary sets, and then to a discrete column).
 
 ## Feature Selection
 
@@ -36,8 +41,11 @@ Usage: ./cmicot [OPTIONS]
 #### Required parameters
 
 *--pool VAL*
+A tab-separated file with features. The first column is the target feature (label), which can be either discrete or continuous. Note that if the target column takes more than 10 unique values it is transformed to a 10-level variable using in-built binarization (so some target information is lost). The rest columns are explanatory variables (discrete or continuous), which are also transformed to discrete variables during the selection process.
 
-A tab-separated file with features. The first column is the target feature (label), which can be binary or discrete (not float/string/..). The rest columns are binary features constructed from original ones (binary representatives, see the article).
+*--binary-pool VAL*
+
+A tab-separated file with features. The first column is the target feature (label), which can be binary or discrete (continuous variables must be discretized with your own means). The rest columns are binary features constructed from original ones (binary representatives, see the article).
 Any non-binary feature must be preprocessed and transformed to a set of binary features. The mapping between the original feature indices and the binary representative indices is also required (even ef all the features are binary, see below).
 You can use `./cmicot_eval` binarization mode to preprocess your dataset. You can also obtain `pool_bin` and `map_bin` using your methods, as long as the input format is correct. [Example](https://yadi.sk/d/4RAMii7B3ErJxS) (coil2000 dataset).
 
@@ -55,7 +63,7 @@ A tab-separated file with a feature-bin map. The indices of original features (c
 
 #### Optional parameters
 
- *-k VAL*
+ *-t VAL*
  
 The maximal number of features whose joint interaction could be taken into account by the algorithm (see the NIPS'2016 paper for more details).
 
@@ -76,7 +84,7 @@ Usage: ./cmicot_eval [OPTIONS] [filename]
 
 #### Required parameters
 
-*-t VAL*
+*-k VAL*
 
 The index of the feature to be evaluated, 0-based.
 
@@ -90,7 +98,7 @@ Feature indices (comma-separated) to be used as background, 0-based. May be used
 
 Feature indices (comma-separated) to be removed from background, 0-based. May be used multiple times. Default: no features are removed.
 
-*-k VAL*
+*-t VAL*
 
 The maximal number of features whose joint interaction could be taken into account by the algorithm (see the NIPS'2016 paper for more details). Same as above.
 
