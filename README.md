@@ -21,8 +21,8 @@ Default binarization:
 
 Custom binarization:
 ```bash
-> cat pool | ./cmicot_eval --bin-feature-map > map_bin
-> cat pool | ./cmicot_eval --output-pool > pool_bin
+> cat pool | ./cmicot_eval --bin-feature-map  --binarization minEntropy -x 20 > map_bin
+> cat pool | ./cmicot_eval --output-pool --binarization minEntropy -x 20 > pool_bin
 > ./cmicot --map map_bin --binary-pool pool_bin > feature_ranking
 ```
 * `pool` is a `tsv` file with the target variable in the first column and explanatory variables in the rest columns ([example](https://yadi.sk/d/vbTVJ2NT3ExTyu)).
