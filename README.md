@@ -90,6 +90,14 @@ The index of the feature to be evaluated, 0-based.
 
 #### Optional parameters
 
+*-t VAL*
+
+The maximal number of features whose joint interaction could be taken into account by the algorithm (see the NIPS'2016 paper for more details). Same as above.
+
+*--thread-count VAL*
+
+The number of threads to use during maximization and minimization (default: 8).
+
 *-i VAL*
 
 Feature indices (comma-separated) to be used as background, 0-based. May be used multiple times. Default: all features are backgound.
@@ -98,17 +106,9 @@ Feature indices (comma-separated) to be used as background, 0-based. May be used
 
 Feature indices (comma-separated) to be removed from background, 0-based. May be used multiple times. Default: no features are removed.
 
-*-t VAL*
-
-The maximal number of features whose joint interaction could be taken into account by the algorithm (see the NIPS'2016 paper for more details). Same as above.
-
 *--cmim*
 
-Calculate CMIM score. Option *-k* is meaningless with *--cmim*.
-
-*--thread-count VAL*
-
-The number of threads to use during maximization and minimization (default: 8).
+Calculate CMIM score. Option *-t* is meaningless with *--cmim*.
 
 *--bin-feature-map*
 
