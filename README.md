@@ -38,7 +38,9 @@ Usage: ./cmicot [OPTIONS]
 #### Required parameters
 
 *--pool VAL*
-A tab-separated file with features. The first column is the target feature (label), and the rest columns are the explanatory variables. Features can be binary, discrete or continuous. Features with more than 10 (default) unique values are transformed to 10-level variables using in-built binarization (if `-x VAL ` option is used, it is `VAL` instead of 10). Note that some feature information is lost during this process. It might be useful to set more levels for the target, than for the explanatory variables (you need to run `--just-binarize` twice and paste the necessary pool parts together, see below).
+A tab-separated file with features. The first column is the target feature (label), and the rest columns are the explanatory variables. Features can be binary, discrete or continuous. Features with more than 10 (default) unique values are transformed to 10-level variables using in-built binarization (if `-x VAL ` option is used, it is `VAL` instead of 10). 
+
+Note that some feature information is lost during this process. It might be useful to set more levels for the target, than for the explanatory variables (you need to run `--just-binarize` twice and paste the necessary pool parts together, see below).
 
 
 #### Optional parameters
@@ -46,8 +48,14 @@ A tab-separated file with features. The first column is the target feature (labe
 *--binary-pool VAL*
 
 A tab-separated file with features. The first column is the target feature (label), which can be binary or discrete (continuous variables must be discretized). The rest columns are binary features constructed from the original ones (also known as binary representatives, see the NIPS paper).
+
 Any non-binary feature must be preprocessed and transformed to a set of binary features. The mapping between the original feature indices and the binary representative indices is also required (even if all the features are binary).
-You can use the in-built binarization mode to preprocess your dataset: `./cmicot --pool pool --just-binarize pool_bin,map_bin`
+
+You can use the in-built binarization mode to preprocess your dataset:
+```bash
+./cmicot --pool pool --just-binarize pool_bin,map_bin.
+```
+
 You can also obtain `pool_bin` and `map_bin` using your methods, as long as the input format is correct. [Example](https://yadi.sk/d/4RAMii7B3ErJxS) (coil2000 dataset).
 
 *--map VAL*
@@ -82,9 +90,15 @@ Binarization mode. Should be one of: maxSumLog, medianInBin, minEntropy, medianP
 The maximum number of levels or binary representatives (default: 10). The option can greatly affect the quality of the feature selection.
 Note that `VAL` is the maximum number, i.e. depending on the binarization mode (`--binarization`) and on the distribution of the original feature values the actual number can be less (e.g., `-x 5` will not transform a binary feature to a set of five binary features).
 
-Transform every original variable (including the target) to a binary variable: `./cmicot --pool pool --just-binarize pool_bin,map_bin -x 1`
+Transform every original variable (including the target) to a binary variable:
+```bash
+./cmicot --pool pool --just-binarize pool_bin,map_bin -x 1
+```
 
-Transform the target to a 3-level variable, each explanatory feature to a pair of binary representatives: `./cmicot --pool pool --just-binarize pool_bin,map_bin -x 2`
+Transform the target to a 3-level variable, each explanatory feature to a pair of binary representatives:
+```bash
+./cmicot --pool pool --just-binarize pool_bin,map_bin -x 2
+```
 
 *--just-binarize POOL,MAP*
 
