@@ -14,13 +14,13 @@ To find more usage information you can run the binary with `--help` option.
 
 All-in-one feature selection:
 ```bash
-> ./cmicot --pool pool > feature_ranking
+./cmicot --pool pool > feature_ranking
 ```
 
 Binarization and feature selection in two commands:
 ```bash
-> ./cmicot --pool pool --just-binarize pool_bin,map_bin --binarization minEntropy -x 20
-> ./cmicot --map map_bin --binary-pool pool_bin > feature_ranking
+./cmicot --pool pool --just-binarize pool_bin,map_bin --binarization minEntropy -x 20
+./cmicot --map map_bin --binary-pool pool_bin > feature_ranking
 ```
 * `pool` is a `tsv` file with the target variable in the first column and explanatory variables in the rest columns ([example](https://yadi.sk/d/vbTVJ2NT3ExTyu)).
 
@@ -38,9 +38,9 @@ Usage: ./cmicot [OPTIONS]
 #### Required parameters
 
 *--pool VAL*
-A tab-separated file with features. The first column is the target feature (label), and the rest columns are the explanatory variables. Features can be binary, discrete or continuous. Features with more than 10 (default) unique values are transformed to 10-level variables using in-built binarization (if `-x VAL ` option is used, it is `VAL` instead of 10). 
+A tab-separated file with features. The first column is the target feature (label), and the rest columns are the explanatory variables. Features can be binary, discrete or continuous. Features with more than 10 (default) unique values are transformed to 10-level variables using built-in binarization (if `-x VAL ` option is used, it is `VAL` instead of 10). 
 
-Note that some feature information is lost during this process. It might be useful to set more levels for the target, than for the explanatory variables (you need to run `--just-binarize` twice and paste the necessary pool parts together, see below).
+Note that some feature information is lost during this process. It might be useful to set more levels for the target, than for the explanatory variables (you need to run `--just-binarize` twice and combine the necessary pool parts, see below).
 
 
 #### Optional parameters
@@ -71,7 +71,7 @@ A tab-separated file with a feature-bin map. The indices of original features (c
 
  *-t VAL*
  
-The maximal number of features whose joint interaction could be taken into account by the algorithm (see the NIPS'2016 paper for more details). Default: 6. The recommended values are between 3 and 8. You can mimic CMIM feature selection setting the value to 1.
+The maximal number of features whose joint interaction could be taken into account by the algorithm (see the NIPS'2016 paper for more details). Default: 6. The recommended values are between 3 and 8. You can mimic CMIM feature selection method setting the value to 1.
 
 *--thread-count VAL*
 
