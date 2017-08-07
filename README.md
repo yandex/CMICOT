@@ -71,7 +71,7 @@ A tab-separated file with a feature-bin map. The indices of original features (c
 
  *-t VAL*
  
-The maximal number of features whose joint interaction could be taken into account by the algorithm (see the NIPS'2016 paper for more details). Default: 6. The recommended values are between 3 and 8. You can mimic CMIM feature selection method setting the value to 1.
+The maximal number of features whose joint interaction could be taken into account by the algorithm (see the NIPS'2016 paper for more details). Default: 6. The recommended values are between 3 and 8. You can mimic CMIM feature selection method by setting the value to 1.
 
 *--thread-count VAL*
 
