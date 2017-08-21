@@ -16,10 +16,10 @@ The following installation methods are supported:
 ### Download
 
 Download the required binary depending on your OS:
-Linux
-Darwin
-Windows
-MacOS
+* Linux
+* Darwin
+* Windows
+* MacOS
 
 ### Build the binary from a local copy
 
