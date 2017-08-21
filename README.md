@@ -33,7 +33,7 @@ git clone https://github.com/cmicot/cmicot.git
 ```
 ../../ya make -r [-o <output directory>]
 ```
-Windows installation might require ((http://landinghub.visualstudio.com/visual-cpp-build-tools Visual C++ 2015 Build Tools)).
+Windows installation might require [Visual C++ 2015 Build Tools](http://landinghub.visualstudio.com/visual-cpp-build-tools).
 
 ## Quick start
 
