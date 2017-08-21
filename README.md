@@ -7,6 +7,34 @@ It was presented at [NIPS'2016](http://papers.nips.cc/paper/6584-efficient-high-
 
 To find more usage information you can run the binary with `--help` option.
 
+## Installation
+
+The following installation methods are supported:
+* Download
+* Build the binary from a local copy
+
+### Download
+
+Download the required binary depending on your OS:
+Linux
+Darwin
+Windows
+MacOS
+
+### Build the binary from a local copy
+
+To install the command-line package from a local copy of the CMICOT repository:
+
+1. Clone the repository:
+
+```
+git clone https://github.com/cmicot/cmicot.git
+```
+2. Open the cmicot/cmicot/app catalog from the local copy of the CMICOT repository.
+3. Run the following command:
+```
+../../ya make -r [-o <output directory>]
+```
 
 ## Quick start
 
