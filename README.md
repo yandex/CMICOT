@@ -16,10 +16,8 @@ The following installation methods are supported:
 ### Download
 
 Download the required binary depending on your OS:
-* Linux
-* Darwin
-* Windows
-* MacOS
+* Linux (link will be there soon)
+* MacOS (link will be there soon)
 
 ### Build the binary from a local copy
 
@@ -30,7 +28,7 @@ To install the command-line package from a local copy of the CMICOT repository:
 ```
 git clone https://github.com/cmicot/cmicot.git
 ```
-2. Open the cmicot/cmicot/app catalog from the local copy of the CMICOT repository.
+2. Open the cmicot/cmicot catalog from the local copy of the CMICOT repository.
 3. Run the following command:
 ```
 ../../ya make -r [-o <output directory>]
