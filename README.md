@@ -1,5 +1,3 @@
-Disclaimer: source code of our algorithm will be available soon in the current repository.
-
 ## Overview
 
 CMICOT is an efficient high-order interaction-aware feature selection based on conditional mutual information.
