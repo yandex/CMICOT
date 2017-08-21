@@ -1,0 +1,6 @@
+
+
+RECURSE(
+    lib/ut
+    cmicot
+)

@@ -7,33 +7,8 @@ It was presented at [NIPS'2016](http://papers.nips.cc/paper/6584-efficient-high-
 
 To find more usage information you can run the binary with `--help` option.
 
-## Installation
-
-The following installation methods are supported:
-* Download
-* Build the binary from a local copy
-
-### Download
-
-Download the required binary depending on your OS:
-* Linux (link will be there soon)
-* MacOS (link will be there soon)
-
-### Build the binary from a local copy
-
-To install the command-line package from a local copy of the CMICOT repository:
-
-1. Clone the repository:
-
-```
-git clone https://github.com/cmicot/cmicot.git
-```
-2. Open the cmicot/cmicot catalog from the local copy of the CMICOT repository.
-3. Run the following command:
-```
-../../ya make -r [-o <output directory>]
-```
-Windows installation might require [Visual C++ 2015 Build Tools](http://landinghub.visualstudio.com/visual-cpp-build-tools).
+## How to build and contribute
+Instructions for building and contribution can be found [here](https://tech.yandex.com/catboost/doc/dg/concepts/development-and-contributions-docpage/).
 
 ## Quick start
 
@@ -96,7 +71,7 @@ A tab-separated file with a feature-bin map. The indices of original features (c
 
  *-t VAL*
  
-The maximal number of features whose joint interaction could be taken into account by the algorithm (see the NIPS'2016 paper for more details). Default: 6. The recommended values are between 3 and 8. The maximum possible value is currently 64. You can mimic CMIM feature selection method by setting the value to 1.
+The maximal number of features whose joint interaction could be taken into account by the algorithm (see the NIPS'2016 paper for more details). Default: 6. The recommended values are between 3 and 8. You can mimic CMIM feature selection method by setting the value to 1.
 
 *--thread-count VAL*
 
@@ -112,7 +87,7 @@ Binarization mode. Should be one of: maxSumLog, medianInBin, minEntropy, medianP
 
 *-x VAL*
 
-The maximum number of levels (for target feature) or binary representatives (for explanatory features). Default: 10. The option can greatly affect the quality of the feature selection.
+The maximum number of levels or binary representatives (default: 10). The option can greatly affect the quality of the feature selection.
 Note that `VAL` is the maximum number, i.e. depending on the binarization mode (`--binarization`) and on the distribution of the original feature values the actual number can be less (e.g., `-x 5` will not transform a binary feature to a set of five binary features).
 
 Transform every original variable (including the target) to a binary variable:
@@ -127,5 +102,5 @@ Transform the target to a 3-level variable, each explanatory feature to a pair o
 
 *--just-binarize POOL,MAP*
 
-Output binarized pool and feature-bin map for the pool indicated in `--pool VAL` instead of doing feature selection. Please provide filenames where pool and map should be stored separated by a comma. This option could be combined with `--binary-pool` and `--map`, if your purpose is to make a binary dataset (possibly with continuous target) even more binary.
+Output binarized pool and feature-bin map for the pool indicated in `--pool VAL` instead of doing feature selection. Please provide filenames where pool and map should be stored separated by a comma. This option should not be combined with `--binary-pool` and `--map`.
 
