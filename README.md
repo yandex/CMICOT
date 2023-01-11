@@ -26,7 +26,7 @@ To install the command-line package from a local copy of the CMICOT repository:
 1. Clone the repository:
 
 ```
-git clone https://github.com/cmicot/cmicot.git
+git clone https://github.com/yandex/CMICOT.git
 ```
 2. Open the cmicot/cmicot catalog from the local copy of the CMICOT repository.
 3. Run the following command:
